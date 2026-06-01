@@ -25,41 +25,34 @@ cc_library(
     ],
     copts = ["-DMODULE_NAME=\"s_curve_planner\""],
     deps = [
-        "//modules/common/proto:pnc_point_cc_proto",
-        "//modules/planning/proto:planning_config_cc_proto",
-        "@com_github_gflags_gflags//:gflags",
+        "//proto:s_curve_planner_config_cc_proto",
         "@eigen",
     ],
 )
 
-cc_binary(
+cc_library(
     name = "s_curve_planner",
-    srcs = ["src/main.cc"],
-    deps = [":s_curve_planner_lib"],
-)
-
-cc_test(
-    name = "s_curve_planner_test",
-    srcs = ["test/test_path_planner.cc"],
+    srcs = ["plugin_s_curve_planner.cc"],
+    hdrs = ["plugin_s_curve_planner.h"],
+    copts = ["-DMODULE_NAME=\"s_curve_planner\""],
     deps = [
         ":s_curve_planner_lib",
-        "@com_google_googletest//:gtest_main",
+        "//modules/planning/planning_interface_base/task_base:task",
+        "//modules/planning/proto:planning_config_cc_proto",
     ],
-)
-
-cc_test(
-    name = "collision_checker_test",
-    srcs = ["test/test_collision_checker.cc"],
-    deps = [
-        ":s_curve_planner_lib",
-        "@com_google_googletest//:gtest_main",
-    ],
+    alwayslink = True,
 )
 
 install_files(
-    src_dir = "config",
-    dst = "etc/s-curve-planner",
-    files = ["config/s_curve_config.yaml"],
+    src_dir = "conf",
+    dst = "etc/apollo/modules/planning/tasks/s_curve_planner",
+    files = ["conf/default_conf.pb.txt"],
+)
+
+install_files(
+    src_dir = "proto",
+    dst = "etc/apollo/modules/planning/tasks/s_curve_planner/proto",
+    files = ["proto/s_curve_planner_config.proto"],
 )
 
 cpplint()
