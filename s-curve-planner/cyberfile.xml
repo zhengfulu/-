@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cyber>
+  <package>
+    <name>s_curve_planner</name>
+    <version>1.0.0</version>
+    <title>S-Curve Path Planning Module</title>
+    <description>
+      Complete path planning module for autonomous vehicles navigating S-curve scenarios.
+      Includes path generation, velocity planning, collision detection and avoidance strategies.
+    </description>
+    
+    <maintainers>
+      <maintainer email="autonomousdriving@example.com">Autonomous Driving Team</maintainer>
+    </maintainers>
+    
+    <authors>
+      <author email="dev@example.com">Development Team</author>
+    </authors>
+    
+    <license>MIT</license>
+    
+    <url>https://github.com/example/s-curve-planner</url>
+    
+    <bugs>https://github.com/example/s-curve-planner/issues</bugs>
+    
+    <doc>
+      <page name="README">README.md</page>
+      <page name="Architecture">docs/architecture.md</page>
+      <page name="API Guide">docs/usage_guide.md</page>
+    </doc>
+    
+    <depends>
+      <depend>eigen</depend>
+      <depend>gflags</depend>
+    </depends>
+    
+    <exports>
+      <library>
+        <name>s_curve_planner_lib</name>
+        <type>cc_library</type>
+        <description>Core S-curve planning library</description>
+      </library>
+      <executable>
+        <name>s_curve_planner</name>
+        <type>cc_binary</type>
+        <description>S-curve planner executable with demo scenarios</description>
+      </executable>
+    </exports>
+    
+    <rosdep>
+      <rosdep name="libgflags-dev"/>
+      <rosdep name="libeigen3-dev"/>
+    </rosdep>
+  </package>
+</cyber>

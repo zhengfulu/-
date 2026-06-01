@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mainpage>
+  <section name="Overview">
+    <text>
+      S-Curve Path Planning Plugin
+      
+      This plugin provides complete path planning, velocity planning, 
+      and collision avoidance for autonomous vehicles navigating S-curve scenarios.
+    </text>
+  </section>
+  
+  <section name="Features">
+    <text>
+      - S-curve parametric path generation
+      - Curvature-based velocity planning
+      - Vehicle dynamics constraint handling
+      - Obstacle detection and avoidance
+      - Collision checking and validation
+      - Real-time trajectory optimization
+    </text>
+  </section>
+  
+  <section name="Dependencies">
+    <text>
+      - Eigen3 (matrix operations)
+      - Apollo Common (data structures)
+      - Apollo Planning (planning interface)
+    </text>
+  </section>
+  
+  <section name="Configuration">
+    <text>
+      Configuration file: config/s_curve_config.yaml
+      
+      Key parameters:
+      - road_width: Path width (m)
+      - first_curve_diameter: Front S-curve diameter (m)
+      - second_curve_diameter: Rear S-curve diameter (m)
+      - vehicle_width: Vehicle width (m)
+      - max_velocity: Maximum speed (m/s)
+      - safety_margin: Safety distance to obstacles (m)
+    </text>
+  </section>
+  
+  <section name="Usage">
+    <text>
+      1. Initialize the planner with scenario configuration
+      2. Set vehicle initial state
+      3. Call plan() with obstacle list
+      4. Retrieve generated trajectory
+      5. Validate trajectory safety before execution
+    </text>
+  </section>
+</mainpage>

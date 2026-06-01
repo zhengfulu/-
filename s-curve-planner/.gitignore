@@ -1,0 +1,44 @@
+# Build artifacts
+build/
+bazel-*
+*.o
+*.a
+*.so
+*.dylib
+*.dll
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Output files
+output/
+*.log
+*.csv
+*.txt~
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# Test results
+.coverage
+.pytest_cache/
+test_results/
+
+# Dependency
+third_party/
+extern/

@@ -1,0 +1,30 @@
+workspace(name = "s_curve_planner")
+
+# Load Bazel rules
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
+
+# Eigen
+http_archive(
+    name = "eigen",
+    build_file = "//bazel:eigen.BUILD",
+    sha256 = "8586084f70f9bde910d2d88d8d3eef313c9e64e4ebc4ae4a1dff03cab20dfe18",
+    strip_prefix = "eigen-3.3.4",
+    urls = ["https://bitbucket.org/eigen/eigen/get/3.3.4.tar.gz"],
+)
+
+# Google Test
+http_archive(
+    name = "com_google_googletest",
+    sha256 = "353ab86e35cea1cd386115e453acebe665a0346b48a92d921e5d14b9d1a7fb51",
+    strip_prefix = "googletest-release-1.11.0",
+    urls = ["https://github.com/google/googletest/archive/release-1.11.0.zip"],
+)
+
+# Gflags
+http_archive(
+    name = "com_github_gflags_gflags",
+    sha256 = "8a7d786d6b8535a676fb7aa624748ce1e9527d51cb2059a78fe6f10222b8f86e",
+    strip_prefix = "gflags-2.2.2",
+    urls = ["https://github.com/gflags/gflags/archive/v2.2.2.zip"],
+)
